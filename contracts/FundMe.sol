@@ -4,31 +4,32 @@ pragma solidity ^0.8.20; //declaring the solidity version
 // to tell the contract the minimum required 
 
 // this allows your contract to interact with the chainlink price feed updates
-import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
+import {PriceConverter} from "./PriceConverter.sol";
 
 
 contract FundMe {
     // function for funding the contract
     // the function will allow users too send $
     // have a minimum amount of $ sent
-    // payable keyword allows the function to 
-function fund() public payable {
-        require(msg.value >= 1e14, "didn't send enough ether");
+    // payable keyword allows the contract to keep funds
+    address[] public funders;
+    mapping (address funders =>uint256 amountFunded) public addressToAmountFunded;
+
+    using PriceConverter for uint256;
+
+    uint256 public minimumUSD = 5e18;
+
+    // this line defines the variavle for the funders address
+    
+function fund() public  payable {
+require(msg.value.getConversionRate() >= 1e10, "didn't send enough ether");
+        funders.push(msg.sender);
+
+        // this line returns the funders address and amount paid
+        addressToAmountFunded[msg.sender] = addressToAmountFunded[msg.sender] + msg.value;
     }
-function getPrice() public view returns (uint256) {
-    AggregatorV3Interface priceFeed = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306);
-    (,int256 price,,,) = priceFeed.latestRoundData();
-    //price variavle will rep ETH in USD
 
-    return uint256(price) * 1e10;
-}
-
-function getConversionrate(uint256 ethAmount) public view returns (uint256) {
-    uint256 ethPrice = getPrice();
-    uint256 ethAmountInUSD = (ethPrice * ethAmount)/1e36;
-    return (ethAmountInUSD);
-}
-
+    
 
     //function for withdrawing the funds vy the owner
     function withdraw() public {}

@@ -1,0 +1,66 @@
+{
+	"compiler": {
+		"version": "0.8.33+commit.64118f21"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "Largeno",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "add",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/SafeMathsTester.sol": "SafeMathTester"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/SafeMathsTester.sol": {
+			"keccak256": "0x969335b4b3681ab380fba30b1981f9f394b23a676ee76fe2f5257ab360ed2bc8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b25c6f58b9b737b57715bb01a55c107c0b7d699025a2b3ad5ae20972070e4324",
+				"dweb:/ipfs/QmRabVJCVW4X92TeAd19bDkE7V149xsrZR4qh9c2vuzvGh"
+			]
+		}
+	},
+	"version": 1
+}
