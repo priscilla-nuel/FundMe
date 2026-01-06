@@ -6,6 +6,25 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "addressToAmountFunded",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "fund",
 				"outputs": [],
@@ -13,17 +32,54 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "funder",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "ethAmount",
+						"type": "uint256"
+					}
+				],
 				"name": "getConversionRate",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
 				"inputs": [],
 				"name": "getPrice",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -96,11 +152,11 @@
 			]
 		},
 		"contracts/FundMe.sol": {
-			"keccak256": "0xea5a0e8abc00f159eb9a20fc277af85129025623e72d95da2c2a142e589c8e37",
+			"keccak256": "0x8cdb5fcd013b0fc14729c50b3d84e2422956f6717561ecdf74089b4c6349fdc6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://2590881e397d1d8bd6828244a525ff01a9ef1b924564671c92a0c740c448529e",
-				"dweb:/ipfs/Qmb54hQqGLCzL2ye9LrUobRmK5b4UxEh3XBvrCFKQ6M2uj"
+				"bzz-raw://97789c937ac61afbcb521fc5cec3274adac50c6ee6a25358d8225bb36638aadb",
+				"dweb:/ipfs/QmUwsrBv5MsReRyzeNb8ta4EhawJgkuNV7sZhFLSsGL888"
 			]
 		}
 	},
