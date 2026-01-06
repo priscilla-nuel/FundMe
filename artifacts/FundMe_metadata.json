@@ -6,25 +6,6 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "funders",
-						"type": "address"
-					}
-				],
-				"name": "addressToAmountFunded",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "amountFunded",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [],
 				"name": "fund",
 				"outputs": [],
@@ -32,19 +13,27 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
+				"inputs": [],
+				"name": "getConversionRate",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getPrice",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getVersion",
+				"outputs": [
 					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
-					}
-				],
-				"name": "funders",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -107,19 +96,11 @@
 			]
 		},
 		"contracts/FundMe.sol": {
-			"keccak256": "0x09da29d777441955a403aca4e5dd27e70b79a618ee6ee9855992ae2390d30dce",
+			"keccak256": "0xea5a0e8abc00f159eb9a20fc277af85129025623e72d95da2c2a142e589c8e37",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9c500811123ecf19b8840bb10c67e960b9083fae57ebed274f297a0df00ee8ad",
-				"dweb:/ipfs/QmPTUCYiNb76S2kf7KiZSUDvYWsSjB2jyZPiQ5mTme3RFQ"
-			]
-		},
-		"contracts/PriceConverter.sol": {
-			"keccak256": "0x335f49eb6bbf26d013f4899439676760fac8905be973b5044f2e0b45de881f3d",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://d70bf530790c8147df18e65ab031485f76c2d24324fa6ef80c2fa16e0a55b16e",
-				"dweb:/ipfs/QmZDYj3Cd1VhWRzoBLk7RZq9e3yM8sB1gNnY7qegCTE2hG"
+				"bzz-raw://2590881e397d1d8bd6828244a525ff01a9ef1b924564671c92a0c740c448529e",
+				"dweb:/ipfs/Qmb54hQqGLCzL2ye9LrUobRmK5b4UxEh3XBvrCFKQ6M2uj"
 			]
 		}
 	},
