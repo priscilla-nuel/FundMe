@@ -39,7 +39,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "funder",
+				"name": "funders",
 				"outputs": [
 					{
 						"internalType": "address",
@@ -152,11 +152,11 @@
 			]
 		},
 		"contracts/FundMe.sol": {
-			"keccak256": "0x8cdb5fcd013b0fc14729c50b3d84e2422956f6717561ecdf74089b4c6349fdc6",
+			"keccak256": "0xe6df39d241deff7442ef26e00bf5ce508679d6d86b156e17386c438c068682ed",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://97789c937ac61afbcb521fc5cec3274adac50c6ee6a25358d8225bb36638aadb",
-				"dweb:/ipfs/QmUwsrBv5MsReRyzeNb8ta4EhawJgkuNV7sZhFLSsGL888"
+				"bzz-raw://eec93a48fca01256c07b4aa0863d8e1c3090c35b327d6c906caf4485b9bea6b8",
+				"dweb:/ipfs/QmZ5cQKRuTCgbFJLvRUnySjE2gXowHxDdvS2wfyTjtdeo3"
 			]
 		}
 	},
