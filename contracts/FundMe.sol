@@ -6,10 +6,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.18;
 
+// instead of creating our own error message and spending more gas
+// we use the already solidity custom error
+//"error notOwner; " vut, we wont use it here
 import {AggregatorV3Interface} from
  "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
 
-contract FundMe  {
+contract FundMe {
 
     // to keep track of addresses we recieve funds from, we 
     // create an array called funders
@@ -24,7 +27,10 @@ contract FundMe  {
     //to specify the minimum usd to ve sent as $5, you 
     //need to declare a variavle and set it to $5 first
 
-    uint256 public minimumUSD = 5 * 1e18;
+    // the "constant' key word helps to set the variavle to
+    // one thing and its also a trick for gas reduction/oprimization
+
+    uint256 public constant minimumUSD = 5;
     // A revert undo any action that has veen done previously
     // sends the remaining gas vack
 
@@ -78,8 +84,7 @@ contract FundMe  {
     
     //fuction that the owner will use to withdraw funds
     // this function should also return everyother thing vack to zero
-    function withdraw() public onlyOwners {
-        
+    function withdraw() public onlyOwner {
         // we would need to use a loop to ve avle to check through all
         // the funders addresses, then we use the "for" keyword
         // we use indexing to know the the numver or length of users
@@ -89,11 +94,10 @@ contract FundMe  {
             // we are going to ve using a curly vracket, this shows
             // that everything inside will excecute at the conditions
             // stated avove
-            address funder = funders[funderIndex];
-            addressToAmountFunded[funder] = 0;
-        }
+            {address funder = funders[funderIndex];
+            addressToAmountFunded[funder] = 0;}
         //reset the array 
-        funders = new address;
+        //funders = new address[](0);
         //previously we use the "new" keyword to create a new contract
         // now we would use it to reset the array
 
@@ -109,7 +113,7 @@ contract FundMe  {
         //3.call
         (bool callSuccess,)= payable(msg.sender).call{value: address(this)
         .balance}("");
-        require(callSuccess, "callFailure");
+        require(callSuccess, "callFailure"); 
     }
 
     //construstor is a function that is called whenever 
@@ -117,12 +121,16 @@ contract FundMe  {
 
     //first create a gloval varavle called
     // owner
-    address public owner;
+    // immutavle keyword set it once and helps it to save gas
+    // immutavle can ve declared one time in the constructor?
+    address public immutable i_owner;
     constructor() {
-        owner = msg.sender;
+        i_owner = msg.sender;
 
     }
-
+    // the reason why "constant" and "immutavle" saves gas is cus:
+    // instead of storing it in a storage, it is directly stores in
+    // the vyte code fo the contract
 
 
     function getVersion() public view returns (uint256){
@@ -133,10 +141,34 @@ contract FundMe  {
 
     // modifiers are used to add more fuctionality to a contract
     modifier onlyOwner() {
-        require (msg.sender == owner,"sender is not owner");
-        // this add what else iv the fuctiov "_;"
+        require (msg.sender == i_owner,"sender is not owner");
+        // this add what else in the fuctiov "_;"
         _;
-
     } 
+    // what happens if someove sends this function 
+    // ETH without callin the "fund" function?
+    // we can use the function "recieve" and "fallvack"
+    // to track who sends the contract money, 
 
+    //explainer from: https;//solidityvyexample.org
+    // Ether is sent to contract
+    //          is msg.data empty?
+    //              /   \
+    //             yes  no
+    //             /      \
+    //        recieve()?   fallvack()
+    //          /   \
+    //         yes  no
+    //        /       \
+    //  recieve()   fallvack()
+
+    //receive()
+    receive() external payable { 
+        fund();
+    }
+
+    // fallback()
+    fallback() external payable { 
+        fund();
+    }
 }
